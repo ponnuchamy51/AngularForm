@@ -6,24 +6,37 @@
       <form #f="ngForm" (ngSubmit)="submit(f)">
         <div class="form-group">
           <label for="firstName">First Name</label>
-          <input required type="text" name="firstName" [(ngModel)]="firstName" #name="ngModel" class="form-control"
-            id="firstName" minlength="10">
+          <input required type="text" name="firstName" [(ngModel)]="firstName" #name="ngModel" class="form-control" id="firstName"
+            minlength="10">
           <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
             <div *ngIf="name.errors.required"> First Name is required </div>
             <div *ngIf="name.errors.minlength"> First Name should be minimum {{name.errors.minlength.requiredLength}}
               characters </div>
           </div>
         </div>
+        <div class="form-group ">
+          <label for="" class="font-weight-bolder form-check-inline">Gender</label>
+          <div class="custom-control custom-radio">
+            <input type="radio" ngModel value="male" #sex="ngModel" class="custom-control-input" id="male" name="gender"
+              required>
+            <label class="custom-control-label" for="male">Male</label>
+          </div>
+          <div class="custom-control custom-radio mb-3 form-check-inline">
+            <input type="radio" ngModel value="female" #sex="ngModel" class="custom-control-input" id="female" name="gender"
+              required>
+            <label class="custom-control-label" for="female">Female</label>
+          </div>
+        </div>
+
         <div class="form-group">
-          <label for="comment">Comment</label>
-          <textarea required name="comment" id="comment" ngModel #comment="ngModel" class="form-control" cols="10"
-            rows="5"></textarea>
+          <label for="comment">Profile Description</label>
+          <textarea required name="comment" id="comment" ngModel #comment="ngModel" class="form-control" cols="10" rows="2"></textarea>
           <div class="alert alert-danger" *ngIf="comment.touched && comment.invalid">
             Comment is required
           </div>
         </div>
         <div ngModelGroup="address" #addressInfo="ngModelGroup">
-          <h4>Address Info</h4>
+          <h4 class="text-capitalize">Communication Details</h4>
           <div class="row">
             <div class="col-md-6 offset-md-1">
               <div class="form-group">
@@ -44,11 +57,39 @@
                   <div *ngIf="city.errors.required"> City is required </div>
                 </div>
               </div>
+              <div class="form-group">
+                <label for="country">Country</label>
+                <select name="country" ngModel #country="ngModel" id="country" class="form-control">
+                  <option value="">Select Country</option>
+                  <option *ngFor="let country of contries" [value]="country.id">{{ country.name }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="zipcode">Zipcode</label>
+                <input type="text" ngModel id="zipcode" name="zipcode" #zip="ngModel" class="form-control" />
+              </div>
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-dark">Submit</button>
+        <div class="form-group">
+          <div class="custom-control custom-checkbox">
+            <input ngModel #terms="ngModel" name="terms" type="checkbox" class="custom-control-input" id="terms">
+            <label class="custom-control-label" for="terms">Accept Terms and conditions</label>
+          </div>
+        </div>
+        <div class="text-right">
+          <button type="reset" class="btn btn-light mr-2">Reset</button>
+          <button type="submit" class="btn btn-dark " [disabled]="f.invalid">Submit</button>
+        </div>
       </form>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="footer">
+        <p class="small text-center">Terms and conditions</p>
+      </div>
     </div>
   </div>
 </div>

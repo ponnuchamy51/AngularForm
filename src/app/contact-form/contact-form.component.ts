@@ -7,8 +7,23 @@ import {NgForm, NgModelGroup} from '@angular/forms';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
-
-  constructor() { }
+  contries: any[];
+  constructor() {
+    this.contries = [
+      {
+        id: 1,
+        name: "India"
+      },
+      {
+        id: 2,
+        name: "Australia"
+      },
+      {
+        id: 3,
+        name: "Malaysia"
+      }
+    ]
+   }
 
   ngOnInit() {
   }
