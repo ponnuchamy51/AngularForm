@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center pt-5 text-uppercase">Contact Form</h1>
+      <hr>
+      <form #f="ngForm" (ngSubmit)="submit(f)">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input required type="text" name="firstName" [(ngModel)]="firstName" #name="ngModel" class="form-control"
+            id="firstName" minlength="10">
+          <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+            <div *ngIf="name.errors.required"> First Name is required </div>
+            <div *ngIf="name.errors.minlength"> First Name should be minimum {{name.errors.minlength.requiredLength}}
+              characters </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <textarea required name="comment" id="comment" ngModel #comment="ngModel" class="form-control" cols="10"
+            rows="5"></textarea>
+          <div class="alert alert-danger" *ngIf="comment.touched && comment.invalid">
+            Comment is required
+          </div>
+        </div>
+        <div ngModelGroup="address" #addressInfo="ngModelGroup">
+          <h4>Address Info</h4>
+          <div class="row">
+            <div class="col-md-6 offset-md-1">
+              <div class="form-group">
+                <label for="address">Door No./ Street</label>
+                <input required type="text" name="address" ngModel #address="ngModel" class="form-control" id="address"
+                  minlength="5">
+                <div class="alert alert-danger" *ngIf="address.touched && address.invalid">
+                  <div *ngIf="address.errors.required"> Address is required </div>
+                  <div *ngIf="address.errors.minlength"> Address should be minimum
+                    {{address.errors.minlength.requiredLength}}
+                    characters </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="city">City</label>
+                <input required type="text" name="city" ngModel #city="ngModel" class="form-control" id="city">
+                <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+                  <div *ngIf="city.errors.required"> City is required </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
