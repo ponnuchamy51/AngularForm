@@ -1,7 +1,8 @@
+import { SignupFormComponent } from './signup-form-component/signup-form.component';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -10,12 +11,14 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
   declarations: [
     AppComponent,
     ContactFormComponent,
+    SignupFormComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],
