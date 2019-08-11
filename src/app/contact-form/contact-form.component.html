@@ -6,7 +6,7 @@
       <form #f="ngForm" (ngSubmit)="submit(f)">
         <div class="form-group">
           <label for="firstName">First Name</label>
-          <input required type="text" name="firstName" [(ngModel)]="firstName" #name="ngModel" class="form-control" id="firstName"
+          <input required type="text" name="firstName" ngModel #name="ngModel" class="form-control" id="firstName"
             minlength="10">
           <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
             <div *ngIf="name.errors.required"> First Name is required </div>

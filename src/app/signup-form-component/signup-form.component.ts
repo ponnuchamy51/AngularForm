@@ -10,25 +10,30 @@ import { UsernameValidators } from './username.validators';
 })
 export class SignupFormComponent {
   form = new FormGroup({
-    'username': new FormControl('', [
-      Validators.required,
-      Validators.email,
-      UsernameValidators.cannotContainSpaces,
-      Validators.minLength(3),
-      Validators.maxLength(100)
-    ]),
-    'password': new FormControl('',[
-      Validators.required,
-      Validators.minLength(3),
-      Validators.maxLength(10)
-    ])
+    'account': new FormGroup({
+      'username': new FormControl('', [
+        Validators.required,
+        UsernameValidators.cannotContainSpaces,
+        Validators.minLength(3),
+        Validators.maxLength(100)
+      ],UsernameValidators.uniqueNameValidation),
+      'password': new FormControl('',[
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(10)
+      ])
+    }),
+    
   })
   get username()
   {
-    return this.form.get('username')
+    return this.form.get('account.username')
   }
   signup()
   {
+    this.form.setErrors({
+      loginErrors: true 
+    });
     console.log(this.form.value)
   }
 }
