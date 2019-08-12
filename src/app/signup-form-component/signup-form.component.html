@@ -18,7 +18,6 @@
                             <div *ngIf="username.errors.required">
                                 User Name is required.
                             </div>
-
                             <div *ngIf="username.errors.uniqueNameValidation">
                                 User Name is already taken.
                             </div>
@@ -29,7 +28,6 @@
                                 User Name should be maximun {{ username.errors.maxlength.requiredLength }}.
                             </div>
                         </div>
-
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>

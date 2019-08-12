@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Form Array</h1>
+    <hr>
+    <form>
+      <div class="form-group">
+        <label for="topics" class="label-control">Topics</label>
+        <input type="text" name="topics" 
+        class="form-control"
+        (keyup.enter)="addTopics(topic)" #topic >
+        <div>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let topic of topics.controls">{{topic.value}}</li>
+          </ul>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

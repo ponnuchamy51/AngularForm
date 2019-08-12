@@ -1,0 +1,11 @@
+<div class="card" style="width:400px" *ngIf="profileInfo">
+  <img class="card-img-top" [src]="profileInfo.avatar_url" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">{{profileInfo.name}}</h4>
+    <p class="card-text">{{profileInfo.location}}</p>
+    <a href="#" class="btn btn-primary">{{ profileInfo.url }}</a>
+    <br/>
+    <a routerLink="/followers" class="btn btn-light mt-2">back</a>
+  </div>
+
+</div>

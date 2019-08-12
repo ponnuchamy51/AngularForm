@@ -1,0 +1,21 @@
+<div class="container" >
+  <br>
+  <div class="row" *ngFor="let follower of followers">
+    <div class="col-md-12 ml-3 mb-2">
+      <div class="card w-100">
+        <div class="card-body">
+          <div class="float-left">
+            <img class="card-img-top rounded-circle" style="width:104px;height:auto;" [src]="follower.avatar_url" alt="">
+          </div>
+          <div class="float-left">
+            <h5 class="card-title">{{follower.login}}</h5>
+            <a [routerLink]="['/profile',follower.id]" class=" btn btn-link">{{follower.url}}</a>
+            <br>
+            <a href="#" class="btn btn-dark">Update</a>
+            <a href="#" class="btn btn-light ml-2">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
